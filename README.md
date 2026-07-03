@@ -1,20 +1,23 @@
 # Minimal Hexapod for MuJoCo 3.10.0
 Open scene.xml in MuJoCo Studio.
 
+# Versions:
 [Python:] 3.11
-[versions:]
-PyOpenGL==3.1.10
-PyYAML==6.0.3
-etils==1.14.0
-mujoco==3.10.0
-pip-chill==1.0.5
-xacro==2.1.1
+[Packages:]
+    PyOpenGL==3.1.10
+    PyYAML==6.0.3
+    etils==1.14.0
+    mujoco==3.10.0
+    pip-chill==1.0.5
+    xacro==2.1.1
 
+# Install Procedure
 py -3.11 -m venv venvMujoco
 venvMujoco\Scripts\activate
 python -m pip --upgrade pip
 pip install -r requirements.txt
 
+# Description:
 This is a simple educational template:
 - 6 legs
 - 18 hinge joints
