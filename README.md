@@ -15,7 +15,12 @@ Open scene.xml in MuJoCo Studio.
 py -3.11 -m venv venvMujoco
 venvMujoco\Scripts\activate
 python -m pip --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements.txt 
+
+# Visual Studio Code (vsc) setup
+Ctrl+Shift+P
+Python: Select Intepreter
+    --> venvMujoco\python.exe
 
 # Description:
 This is a simple educational template:
