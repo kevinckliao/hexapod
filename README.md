@@ -10,6 +10,11 @@ mujoco==3.10.0
 pip-chill==1.0.5
 xacro==2.1.1
 
+py -3.11 -m venv venvMujoco
+venvMujoco\Scripts\activate
+python -m pip --upgrade pip
+pip install -r requirements.txt
+
 This is a simple educational template:
 - 6 legs
 - 18 hinge joints
