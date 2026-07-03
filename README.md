@@ -3,17 +3,12 @@ Open scene.xml in MuJoCo Studio.
 
 [Python:] 3.11
 [versions:]
-absl-py==2.4.0
-etils==1.14.0
-fsspec==2026.6.0
-glfw==2.10.0
-mujoco==3.10.0
-numpy==2.4.6
 PyOpenGL==3.1.10
 PyYAML==6.0.3
-typing_extensions==4.16.0
+etils==1.14.0
+mujoco==3.10.0
+pip-chill==1.0.5
 xacro==2.1.1
-zipp==4.1.0
 
 This is a simple educational template:
 - 6 legs
