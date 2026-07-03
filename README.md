@@ -21,6 +21,7 @@ pip install -r requirements.txt
 Ctrl+Shift+P
 Python: Select Intepreter
     --> venvMujoco\python.exe
+In Python Source-Code, Click [Play]-Triangle-Icon
 
 # Description:
 This is a simple educational template:
