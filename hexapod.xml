@@ -1,0 +1,124 @@
+<mujoco model="hexapod">
+  <compiler angle="degree"/>
+  <option gravity="0 0 -9.8"/>
+  <default>
+    <joint damping="1" limited="true"/>
+    <geom friction="1 0.02 0.01"/>
+    <position kp="50"/>
+  </default>
+
+  <worldbody>
+    <light pos="0 0 2"/>
+    <geom name="ground" type="plane" size="3 3 .1"/>
+    <camera name="overview" pos="0 -1 0.6" xyaxes="1 0 0 0 0.5 1"/>
+
+    <body name="body" pos="0 0 0.3">
+      <freejoint/>
+      <geom type="box" size="0.10 0.06 0.02" mass="2" rgba=".6 .6 .6 1"/>
+
+      <!-- Left Front -->
+      <body name="LF" pos="0.08 0.05 0">
+        <joint name="LF_coxa" type="hinge" axis="0 0 1" range="0 180"/>
+        <geom type="capsule" fromto="0 0 0 0.045 0 0" size="0.008"/>
+        <body pos="0.045 0 0">
+          <joint name="LF_femur" type="hinge" axis="0 1 0" range="-60 60"/>
+          <geom type="capsule" fromto="0 0 0 0.071 0 0" size="0.007"/>
+          <body pos="0.071 0 0">
+            <joint name="LF_tibia" type="hinge" axis="0 1 0" range="-10 100"/>
+            <geom type="capsule" fromto="0 0 0 0.20 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- Right Front -->
+      <body name="RF" pos="0.08 -0.05 0" euler="0 0 180">
+        <joint name="RF_coxa" type="hinge" axis="0 0 1" range="0 180"/>
+        <geom type="capsule" fromto="0 0 0 0.045 0 0" size="0.008"/>
+        <body pos="0.045 0 0">
+          <joint name="RF_femur" type="hinge" axis="0 1 0" range="-60 60"/>
+          <geom type="capsule" fromto="0 0 0 0.071 0 0" size="0.007"/>
+          <body pos="0.071 0 0">
+            <joint name="RF_tibia" type="hinge" axis="0 1 0" range="-10 100"/>
+            <geom type="capsule" fromto="0 0 0 0.20 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- Middle -->
+      <body name="LM" pos="0 0.05 0">
+        <joint name="LM_coxa" type="hinge" axis="0 0 1" range="0 180"/>
+        <geom type="capsule" fromto="0 0 0 0.045 0 0" size="0.008"/>
+        <body pos="0.045 0 0">
+          <joint name="LM_femur" type="hinge" axis="0 1 0" range="-60 60"/>
+          <geom type="capsule" fromto="0 0 0 0.071 0 0" size="0.007"/>
+          <body pos="0.071 0 0">
+            <joint name="LM_tibia" type="hinge" axis="0 1 0" range="-10 100"/>
+            <geom type="capsule" fromto="0 0 0 0.20 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+
+      <body name="RM" pos="0 -0.05 0" euler="0 0 180">
+        <joint name="RM_coxa" type="hinge" axis="0 0 1" range="0 180"/>
+        <geom type="capsule" fromto="0 0 0 0.045 0 0" size="0.008"/>
+        <body pos="0.045 0 0">
+          <joint name="RM_femur" type="hinge" axis="0 1 0" range="-60 60"/>
+          <geom type="capsule" fromto="0 0 0 0.071 0 0" size="0.007"/>
+          <body pos="0.071 0 0">
+            <joint name="RM_tibia" type="hinge" axis="0 1 0" range="-10 100"/>
+            <geom type="capsule" fromto="0 0 0 0.20 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- Rear -->
+      <body name="LR" pos="-0.08 0.05 0">
+        <joint name="LR_coxa" type="hinge" axis="0 0 1" range="0 180"/>
+        <geom type="capsule" fromto="0 0 0 0.045 0 0" size="0.008"/>
+        <body pos="0.045 0 0">
+          <joint name="LR_femur" type="hinge" axis="0 1 0" range="-60 60"/>
+          <geom type="capsule" fromto="0 0 0 0.071 0 0" size="0.007"/>
+          <body pos="0.071 0 0">
+            <joint name="LR_tibia" type="hinge" axis="0 1 0" range="-10 100"/>
+            <geom type="capsule" fromto="0 0 0 0.20 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+
+      <body name="RR" pos="-0.08 -0.05 0" euler="0 0 180">
+        <joint name="RR_coxa" type="hinge" axis="0 0 1" range="0 180"/>
+        <geom type="capsule" fromto="0 0 0 0.045 0 0" size="0.008"/>
+        <body pos="0.045 0 0">
+          <joint name="RR_femur" type="hinge" axis="0 1 0" range="-60 60"/>
+          <geom type="capsule" fromto="0 0 0 0.071 0 0" size="0.007"/>
+          <body pos="0.071 0 0">
+            <joint name="RR_tibia" type="hinge" axis="0 1 0" range="-10 100"/>
+            <geom type="capsule" fromto="0 0 0 0.20 0 0" size="0.006"/>
+          </body>
+        </body>
+      </body>
+
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="LF_coxa_servo" joint="LF_coxa" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LF_femur_servo" joint="LF_femur" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LF_tibia_servo" joint="LF_tibia" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RF_coxa_servo" joint="RF_coxa" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RF_femur_servo" joint="RF_femur" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RF_tibia_servo" joint="RF_tibia" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LM_coxa_servo" joint="LM_coxa" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LM_femur_servo" joint="LM_femur" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LM_tibia_servo" joint="LM_tibia" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RM_coxa_servo" joint="RM_coxa" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RM_femur_servo" joint="RM_femur" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RM_tibia_servo" joint="RM_tibia" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LR_coxa_servo" joint="LR_coxa" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LR_femur_servo" joint="LR_femur" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="LR_tibia_servo" joint="LR_tibia" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RR_coxa_servo" joint="RR_coxa" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RR_femur_servo" joint="RR_femur" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+    <position name="RR_tibia_servo" joint="RR_tibia" kp="10" ctrllimited="true" ctrlrange="-3.14 3.14"/>
+  </actuator>
+</mujoco>
